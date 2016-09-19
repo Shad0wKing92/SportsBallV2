@@ -11,11 +11,13 @@ public class PlayerDrop : MonoBehaviour {
     public EventSystem myEventSystem;
 
     public GameObject Cursor;
+    enum buttonSchemes { Xbox_Zhidong, Sony, Wii, Nyko, GameCube, none}
+    buttonSchemes curScheme;
     CursorMovement CM;
     PlayerBackground PB;
     GameObject p1Cursor, p2Cursor, p3Cursor, p4Cursor;
     Player p1, p2, p3, p4;
-    public GameObject p1Background, p2Background, p3Background, p4Background;
+    public GameObject p1Background, p2Background, p3Background, p4Background, p1Logo, p2Logo, p3Logo, p4Logo;
     public Material[] CursorMats;
 
     //string p1curButt, p2curButt, p3curButt, p4curButt;
@@ -134,6 +136,7 @@ public class PlayerDrop : MonoBehaviour {
                 p1Drop = true;
                 p1Cursor = Instantiate(Cursor, new Vector3(0, 0, 20), this.transform.rotation) as GameObject;
                 p1Cursor.name = "p1Cursor";
+                p1Logo.SetActive(false);
                 //p1Cursor.gameObject.GetComponentInChildren<GameObject>().GetComponentInChildren<MeshRenderer>().material = CursorMats[0];
                 Transform tempGO1 = p1Cursor.GetComponentInChildren<Transform>();
                 tempGO1.GetComponentInChildren<MeshRenderer>().material = CursorMats[0];
@@ -142,6 +145,7 @@ public class PlayerDrop : MonoBehaviour {
                 p2Drop = true;
                 p2Cursor = Instantiate(Cursor, new Vector3(0, 0, 20), this.transform.rotation) as GameObject;
                 p2Cursor.name = "p2Cursor";
+                p2Logo.SetActive(false);
                 Transform tempGO2 = p2Cursor.GetComponentInChildren<Transform>();
                 tempGO2.GetComponentInChildren<MeshRenderer>().material = CursorMats[1];
                 break;
@@ -149,6 +153,7 @@ public class PlayerDrop : MonoBehaviour {
                 p3Drop = true;
                 p3Cursor = Instantiate(Cursor, new Vector3(0, 0, 20), this.transform.rotation) as GameObject;
                 p3Cursor.name = "p3Cursor";
+                p3Logo.SetActive(false);
                 Transform tempGO3 = p3Cursor.GetComponentInChildren<Transform>();
                 tempGO3.GetComponentInChildren<MeshRenderer>().material = CursorMats[2];
                 break;
@@ -156,6 +161,7 @@ public class PlayerDrop : MonoBehaviour {
                 p4Drop = true;
                 p4Cursor = Instantiate(Cursor, new Vector3(0, 0, 20), this.transform.rotation) as GameObject;
                 p4Cursor.name = "p4Cursor";
+                p4Logo.SetActive(false);
                 Transform tempGO4 = p4Cursor.GetComponentInChildren<Transform>();
                 tempGO4.GetComponentInChildren<MeshRenderer>().material = CursorMats[3];
                 break;
