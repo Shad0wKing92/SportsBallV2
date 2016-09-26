@@ -288,6 +288,12 @@
     <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
     <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\WaterInclude.cginc" />
     <None Include="Assets\Standard Assets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
+    <None Include="Assets\StarNestSkybox\StarNest.shader" />
+    <None Include="Assets\StarNestSkybox\StarNestSkybox.shader" />
+    <None Include="Assets\StarNestSkybox\StarNestSkyboxMask.shader" />
+    <None Include="Assets\StarNestSkybox\StarNestSkyboxReadme.txt" />
+    <None Include="Assets\StarNestSkybox\StarNestSkybox_HSV.shader" />
+    <None Include="Assets\StarNestSkybox\hsv.cginc" />
     <None Include="Assets\UIArt\CopyrightREADME.txt" />
     <None Include="Assets\XInputDotNet\MITLicense.txt" />
   </ItemGroup>

@@ -110,7 +110,7 @@
 	        <div class="logo"><a href="http://guavaman.com/projects/rewired" title="Rewired"><img src="files/images/rewired-logo.png" width="173" height="139" alt="Rewired" /></a></div>
                      
           <h1>
-            <!-- InstanceBeginEditable name="PageHeader" -->Troubleshooting
+            <!-- InstanceBeginEditable name="PageHeader" -->precence Troubleshooting
       <!-- InstanceEndEditable -->
             </h1>
             
@@ -130,6 +130,7 @@
       <li><a href="#null-reference-during-recompile">Null reference exception when recompiling scripts in the editor at runtime</a></li>
       <li><a href="#compile-errors-ps4-xbone">Unity 5 compile errors in PS4, XBox One, WiiU, or other special platforms</a></li>
       <li><a href="#not-initialized">Rewired is not initialized error</a></li>
+      <li><a href="#exception-input-manager-entries-not-setup">Exception: &quot;Message: Input Axis MouseAxis1 is not setup.&quot;</a></li>
       <li><a href="#missing-unity-input-entries">Rewired works in the editor but not on Xbox One, PS4, Android, etc.</a></li>
       <li><a href="#time-comparison">Time comparisons to Time.time don't match</a></li>
       <li><a href="#android-joystick-keyboard-keys">Joystick buttons  activate keyboard keys on Android</a></li>
@@ -282,7 +283,7 @@ namespace MyNamespace {
         public Player rewiredPlayer; <span class="comment">// no more clash because Rewired.Player is higher priority than ::Player (global)</span>
     }
 }</pre>
-You can also make a single class take precence over any global class with the same name like this:
+You can also make a single class take precedence over any global class with the same name like this:
 <pre class="code">using UnityEngine;
 using Rewired;
 using Player = Rewired.Player;  <span class="comment">// this declaration will make Rewired.Player take precedence over a global Player class</span>
@@ -383,6 +384,15 @@ void CacheRewiredPlayer() {
 <p>Proceed with the installation and Rewired will set its Script Execution Order.</p>
 <p>&nbsp;</p>
 <hr />
+<h3><a name="exception-input-manager-entries-not-setup" id="exception-input-manager-entries-not-setup"></a>Exception: &quot;Message: Input Axis MouseAxis1 is not setup.&quot;</h3>
+<p>Rewired was not installed properly (canceled during installation) preventing it from installing the Unity Input Manager entries necessary for supporting input on Unity fallback platforms and for getting mouse input when Native Mouse Handling is unavailable or disabled. Another possible cause is that these entries were deleted by some other asset installed after Rewired. This can happen with assets that contain an entire project. These assets will warn you before installation that they will overwrite the entire project. It can also happen if the asset contains its own Input Manager settings and overwrites the file instead of adding entries to it.</p>
+<p>The solution is to re-run the Rewired installation script by going to the menu:</p>
+<ul>
+  <li> Window -&gt; Rewired -&gt; Setup -&gt; Run Installer</li>
+</ul>
+<p>Proceed with the installation and Rewired will add the necessary Input Manager entries.</p>
+<p>&nbsp;</p>
+<hr />
 <h3><a name="missing-unity-input-entries" id="missing-unity-input-entries"></a>Rewired works in the editor but not on Xbox One, PS4, Android, etc.</h3>
 <p>If Rewired works in the editor but not on certain platforms, check the log file. The logs will tell you if Rewired was unable to initialize or any other errors that may have occurred.</p>
 <p>The most common reason for this issue is that Rewired was not installed properly (canceled during installation) preventing it from installing the Unity Input Manager entries necessary for supporting input on Unity fallback platforms. Another possible cause is that these entries were deleted by some other asset installed after Rewired. This can happen with assets that contain an entire project. These assets will warn you before installation that they will overwrite the entire project. It can also happen if the asset contains its own Input Manager settings and overwrites the file instead of adding entries to it.</p>
@@ -479,7 +489,7 @@ void CacheRewiredPlayer() {
 <p>&nbsp;</p>
 <hr />
 <h3><a name="osx-xbox-one-controller-vibration" id="osx-xbox-one-controller-vibration"></a>OSX: XBox One Controller vibration doesn't work</h3>
-<p>In order for vibration to work on the Xbox One Controller on OSX, the <a href="RewiredEditor.html#Settings">input source must be set to Native</a> and you must have <a href="https://github.com/360Controller/360Controller/releases">this driver installed</a> (at least v0.16).</p>
+<p>In order for vibration to work on the Xbox One Controller on OSX, the <a href="RewiredEditor.html#Settings">input source must be set to Native</a> and you must have <a href="https://github.com/360Controller/360Controller/releases" target="_blank">this driver installed</a> (at least v0.16).</p>
 <p>&nbsp;</p>
 <hr />
 <h3><a name="rewired-standalone-input-module-issues" id="rewired-standalone-input-module-issues"></a>RewiredStandaloneInputModue issues</h3>

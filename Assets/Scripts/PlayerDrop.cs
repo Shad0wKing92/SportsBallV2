@@ -36,6 +36,7 @@ public class PlayerDrop : MonoBehaviour {
 
 	void Update ()
     {
+        //player select
         if (p1.GetButtonDown("Select") && p1Drop && !p1CharSelected)
         {
             PB = p1Background.GetComponent<PlayerBackground>();
@@ -64,7 +65,7 @@ public class PlayerDrop : MonoBehaviour {
             p4CharSelected = true;
             p4Cursor.SetActive(false);
         }
-
+        //player selection cancel
         if (p1.GetButtonDown("Cancel") && p1Drop && p1CharSelected)
         {
             p1CharSelected = false;
@@ -93,7 +94,7 @@ public class PlayerDrop : MonoBehaviour {
             PB.CancelSelection();
             p4Cursor.SetActive(true);
         }
-
+        //player drop
         if (p1.GetButtonDown("Select") && !p1Drop)
         {
             Spawn(1, p1Background);
@@ -122,10 +123,10 @@ public class PlayerDrop : MonoBehaviour {
         #endregion
         
 
-        if (p1CharSelected && p1.GetButtonDown("Cancel"))
-        {
-            CharacterDeselected();
-        }
+        //if (p1CharSelected && p1.GetButtonDown("Cancel"))
+        //{
+        //    CharacterDeselected();
+        //}
     }
 
     void Spawn(int pnumDrop, GameObject pnumBackgroundObj)
@@ -170,7 +171,7 @@ public class PlayerDrop : MonoBehaviour {
         //pnumBackgroundObj.SetActive(true);
 
     }
-
+    #region
     //public void CharHover()
     //{
     //    switch (p1curButt)
@@ -241,7 +242,7 @@ public class PlayerDrop : MonoBehaviour {
     //    }
     //}
 
-    
+
     //void CharacterSelected(int charNum)
     //{
     //    p1Cursor.SetActive(false);
@@ -290,9 +291,10 @@ public class PlayerDrop : MonoBehaviour {
     //}
     
 
-    public void CharacterDeselected()
-    {
-        p1CharSelected = false;
-        p1Cursor.SetActive(true);
-    }
+    //public void CharacterDeselected()
+    //{
+    //    p1CharSelected = false;
+    //    p1Cursor.SetActive(true);
+    //}
+    #endregion
 }

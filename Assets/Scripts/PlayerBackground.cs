@@ -9,6 +9,7 @@ public class PlayerBackground : MonoBehaviour {
     public GameObject Leslie, Jona, Ashita, Catarine, Ramsey, Drogas, Sylvia, Bjin, Xavier;
     public Sprite[] SelectedImages;
     public Sprite[] HoverImages;
+    public GameObject weaponSelect;
     GameObject CD, ND, NED, ED, SED, SD, SWD, WD, NWD;
     bool characterChosen;
     GameObject TextObject;

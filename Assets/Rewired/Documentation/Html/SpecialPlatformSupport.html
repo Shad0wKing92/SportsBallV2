@@ -209,16 +209,16 @@
 <p>Rewired includes special support for XBox One for better controller support and more accurate hot-plugging behavior. Rewired supports gamepad vibration on XBox One, however you must first install the prerequisite Xbox One native library provided by Unity.</p>
 <p>If you receive an error when switching to the Xbox One build target in Unity, make sure the <a href="Troubleshooting.html#compile-errors-ps4-xbone">Xbox One platform is checked on the Rewired_Core.dll import options</a>.</p>
 <p><strong>Dependencies</strong></p>
-<p>  Xbox One support requires that you install the following native library provided by Unity be installed into the Plugins/XboxOne folder in your project:</p>
+<p>  Xbox One support requires that you install the following native library provided by Unity in the Plugins/XboxOne folder in your project:</p>
 <ul>
   <li>Gamepad.dll</li>
   </ul>
-<p>To get the library files, go to:<br />
+<p>To get the library, go to:<br />
 Unity Xbox Forums &gt; Build Downloads (Sticky Topic) &gt; Under &quot;Latest Builds&quot;   is &quot;Unity's Xbox One Native Plugins&quot; </p>
 <p>The file Gamepad.dll can be found in Binaries\Native\Variations\Durango_Release in the plugins package.</p>
-<p>Without this dependiency installed correctly, XBox One builds will not function. You may only see black screen when launching the build on the Xbox One if the library is not installed.</p>
+<p>If this dependiency is not installed correctly, XBox One builds will not function. You will only see black screen when launching the build on the Xbox One if the library is not installed.</p>
 <p><strong>Crashes on Start</strong></p>
-<p>This is <em>always</em> due to improper set up of the dependencies noted above. If Gamepad.dll is not found, not in the proper location, or does not have the proper inspector settings to enable it to be included with the XBox One build, all p/invoke calls to Gamepad.dll will fail, which crashes the XBox One rather than throwing an exception which can be caught and handled as happens on all other platforms. If the version of Gamepad.dll you are using does not have the exact method signature matches which Rewired expects, it will also crash. If you upgrade Unity versions but do not update the Gamepad.dll also, it may also crash if the gamepad.dll has been built to a different version of the Xbox One SDK.</p>
+<p>This is <em>always</em> due to improper set up of the dependency noted above. If Gamepad.dll is not found, not in the proper location, or does not have the proper inspector settings to enable it to be included with the XBox One build, all p/invoke calls to Gamepad.dll will fail, which crashes the XBox One rather than throwing an exception which can be caught and handled as happens on all other platforms. If the version of Gamepad.dll you are using does not have the exact method signature  Rewired expects, it will also crash. If you upgrade Unity versions but do not update the Gamepad.dll also, it may also crash if the gamepad.dll has been built to a different version of the Xbox One SDK.</p>
 <p>If for any reason you cannot get the Gamepad.dll, you can disable all calls to the DLL by adding REWIRED_XBOXONE_DISABLE_VIBRATION to the <a href="https://docs.unity3d.com/Manual/PlatformDependentCompilation.html" target="_blank">custom Scripting Define Symbols in the Unity Player settings</a> for the Xbox One Platform. This will disable support for gamepad vibration.</p>
 <p><strong>Accessing XBox One Controller Features</strong></p>
 <p>Special controller features of the XBox One gamepad such as vibration can be accessed via the <a href="http://guavaman.com/projects/rewired/docs/api-reference/html/T_Rewired_Platforms_XboxOne_XboxOneGamepadExtension.htm">XboxOneGamepadExtension</a> class available in the Joystick class <a href="HowTo's.html#xbox-one-controller-special-features">as seen in this example</a>.</p>

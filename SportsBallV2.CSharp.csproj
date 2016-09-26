@@ -151,6 +151,9 @@
     <Compile Include="Assets\Scripts\PlayerBackground.cs" />
     <Compile Include="Assets\Scripts\PlayerDrop.cs" />
     <Compile Include="Assets\Scripts\TestCharacterSelectP1.cs" />
+    <Compile Include="Assets\Scripts\WeaponSelect.cs" />
+    <Compile Include="Assets\StarNestSkybox\Scripts\CameraScroll.cs" />
+    <Compile Include="Assets\StarNestSkybox\Scripts\SkyboxSwitcher.cs" />
     <Compile Include="Assets\UITween\Prefabs\Click Effect Pref\ClickedWaveAnimation.cs" />
     <Compile Include="Assets\UITween\ScenesExamplesScripts\ActivateOnEnable.cs" />
     <Compile Include="Assets\UITween\ScenesExamplesScripts\CreateAnimImage.cs" />
@@ -265,6 +268,12 @@
     <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
     <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\WaterInclude.cginc" />
     <None Include="Assets\Standard Assets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
+    <None Include="Assets\StarNestSkybox\StarNest.shader" />
+    <None Include="Assets\StarNestSkybox\StarNestSkybox.shader" />
+    <None Include="Assets\StarNestSkybox\StarNestSkyboxMask.shader" />
+    <None Include="Assets\StarNestSkybox\StarNestSkyboxReadme.txt" />
+    <None Include="Assets\StarNestSkybox\StarNestSkybox_HSV.shader" />
+    <None Include="Assets\StarNestSkybox\hsv.cginc" />
     <None Include="Assets\UIArt\CopyrightREADME.txt" />
     <None Include="Assets\XInputDotNet\MITLicense.txt" />
   </ItemGroup>

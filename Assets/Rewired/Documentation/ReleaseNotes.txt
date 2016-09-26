@@ -1,3 +1,24 @@
+1.0.0.103:
+
+  Modified Controller Definitions:
+    - Sony DualShock 4: Added support for Sony DualShock 4 USB Wireless Adaptor
+
+1.0.0.102:
+
+  Changes
+    - Added workaround for precision error on Xbox One platform when comparing if values are approximately equal.
+  
+  New Controller Definitions:
+    - Added 8Bitdo SNES30 (Wired) because of firmware changes.
+    
+  Modified Controller Definitions:
+    - 8Bitdo NES30 (Mode 1): Android Fallback, Linux Fallback: Changed D-Pad mappings to use axes instead of keys based on breaking changes in latest firmware version.
+    - 8Bitdo NES30 (Mode 1): Raw Input, Windows UWP, OSX Native, OSX Fallback: Added mapping now that changes in latest firmware version work with this mode.
+    - 8Bitdo NES30 (Mode 1): Linux Native: Added variant for new firmware changes.
+    - 8Bitdo SNES30 (Mode 1): Android Fallback, Linux Fallback: Changed D-Pad mappings to use axes instead of keys based on breaking changes in latest firmware version.
+    - 8Bitdo SNES30 (Mode 1): Raw Input, Windows UWP, OSX Native, OSX Fallback: Added mapping now that changes in latest firmware version work with this mode.
+    - 8Bitdo SNES30 (Mode 1): Linux Native: Added variant for new firmware changes.
+
 1.0.0.101:
 
   Changes:
