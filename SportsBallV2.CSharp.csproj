@@ -145,6 +145,7 @@
     <Compile Include="Assets\Rewired\Internal\Scripts\InputManager.cs" />
     <Compile Include="Assets\Rewired\Internal\Scripts\Misc\ExternalTools.cs" />
     <Compile Include="Assets\Rewired\Internal\Scripts\Platforms\Ouya\OuyaInputSource.cs" />
+    <Compile Include="Assets\Scripts\AbilityMenu.cs" />
     <Compile Include="Assets\Scripts\ControllerTestInput.cs" />
     <Compile Include="Assets\Scripts\CursorMovement.cs" />
     <Compile Include="Assets\Scripts\CursorRotation.cs" />

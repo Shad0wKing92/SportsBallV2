@@ -4,20 +4,27 @@ using Rewired;
 using System.Collections;
 
 public class PlayerBackground : MonoBehaviour {
-    enum SelectableCharacters { Leslie, Jona, Ashita, Catarine, Ramsey, Drogas, Sylvia, Bjin, Xavier, None};
-    SelectableCharacters curChar;
+    public enum SelectableCharacters { Leslie, Jona, Ashita, Catarine, Ramsey, Drogas, Sylvia, Bjin, Xavier, None};
+    public SelectableCharacters curChar;
     public GameObject Leslie, Jona, Ashita, Catarine, Ramsey, Drogas, Sylvia, Bjin, Xavier;
     public Sprite[] SelectedImages;
     public Sprite[] HoverImages;
-    public GameObject weaponSelect;
+    public GameObject weaponSelect, weaponText, abilityMenu;
+    bool weaponSelectActive, characterChosen;
+    [HideInInspector]public bool weaponSelected, abilMenuOpen;
+    WeaponSelect WS;
+    public int playerID;
+    Player _player;
     GameObject CD, ND, NED, ED, SED, SD, SWD, WD, NWD;
-    bool characterChosen;
     GameObject TextObject;
+    
     
     void Start()
     {
+        _player = ReInput.players.GetPlayer(playerID);
         TextObject = this.gameObject;
         curChar = SelectableCharacters.None;
+        WS = weaponSelect.GetComponent<WeaponSelect>();
         CD = GameObject.Find("CenterDiamond");
         ND = GameObject.Find("NorthDiamond");
         NED = GameObject.Find("NorthEastDiamond");
@@ -30,8 +37,36 @@ public class PlayerBackground : MonoBehaviour {
     }
 
 	void Update () {
-	    
-	}
+        if (characterChosen)
+        {
+            if (_player.GetButtonDown("Select") && weaponSelectActive && !weaponSelected)
+            {
+                setWeapon();
+            }
+            if (_player.GetButtonDown("Cancel") && !weaponSelectActive && weaponSelected)
+            {
+                cancelWeaponSelection();
+            }
+            if (_player.GetButtonDown("Cancel") && weaponSelectActive && !weaponSelected)
+            {
+                CancelSelection();
+            }
+            if (weaponSelected)
+            {
+                if (_player.GetButtonDown("SubMenu") && !abilMenuOpen)
+                {
+                    abilityMenu.SetActive(true);
+                    abilMenuOpen = true;
+                }
+                else if (_player.GetButtonDown("SubMenu") && abilMenuOpen)
+                {
+                    abilityMenu.SetActive(false);
+                    abilMenuOpen = false;
+                }
+            }
+        }
+        
+    }
 
     public void switchChar(Collider2D collin)
     {
@@ -152,6 +187,8 @@ public class PlayerBackground : MonoBehaviour {
             default:
                 break;
         }
+        characterChosen = true;
+        weaponMenu();
     }
 
     public void makeAllDissapear()
@@ -212,6 +249,67 @@ public class PlayerBackground : MonoBehaviour {
             default:
                 break;
         }
+        weaponSelect.SetActive(false);
+        weaponSelectActive = false;
+        characterChosen = false;
     }
 
+    void setWeapon()
+    {
+        weaponText.SetActive(true);
+        switch (WS.curWeapon)
+        {
+            case WeaponSelect.Weapons.sniper:
+                weaponText.GetComponent<Text>().text = "Sniper";
+                break;
+            case WeaponSelect.Weapons.pistol:
+                weaponText.GetComponent<Text>().text = "Pistol";
+                break;
+            case WeaponSelect.Weapons.smg:
+                weaponText.GetComponent<Text>().text = "SMG";
+                break;
+            case WeaponSelect.Weapons.minigun:
+                weaponText.GetComponent<Text>().text = "Minigun";
+                break;
+            case WeaponSelect.Weapons.ball:
+                weaponText.GetComponent<Text>().text = "Ball";
+                break;
+            case WeaponSelect.Weapons.stream:
+                weaponText.GetComponent<Text>().text = "Stream";
+                break;
+            case WeaponSelect.Weapons.none:
+                break;
+            default:
+                break;
+        }
+        
+        weaponSelect.SetActive(false);
+        weaponSelectActive = false;
+        weaponSelected = true;
+    }
+
+    void cancelWeaponSelection()
+    {
+        //WS.curWeapon = WeaponSelect.Weapons.none;
+        //Debug.Log("hit");
+        weaponSelected = false;
+        weaponSelect.SetActive(true);
+        weaponSelectActive = true;
+        weaponText.SetActive(false);
+        abilityMenu.SetActive(false);
+        abilMenuOpen = false;
+    }
+
+    void weaponMenu()
+    {
+        StartCoroutine(justWait(0.1f));
+        
+    }
+
+    IEnumerator justWait(float t)
+    {
+        yield return new WaitForSeconds(t);
+        weaponSelect.SetActive(true);
+        weaponSelectActive = true;
+    }
 }

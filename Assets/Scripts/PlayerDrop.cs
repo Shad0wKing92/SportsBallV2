@@ -69,29 +69,27 @@ public class PlayerDrop : MonoBehaviour {
         if (p1.GetButtonDown("Cancel") && p1Drop && p1CharSelected)
         {
             p1CharSelected = false;
-            PB = p1Background.GetComponent<PlayerBackground>();
-            PB.CancelSelection();
+            //PB = p1Background.GetComponent<PlayerBackground>();
+            //PB.CancelSelection();
             p1Cursor.SetActive(true);
         }
         if (p2.GetButtonDown("Cancel") && p2Drop && p2CharSelected)
         {
             p2CharSelected = false;
-            PB = p2Background.GetComponent<PlayerBackground>();
-            PB.CancelSelection();
+            //PB = p2Background.GetComponent<PlayerBackground>();
+            //PB.CancelSelection();
             p2Cursor.SetActive(true);
         }
-        if (p3.GetButtonDown("Cancel") && p3Drop && p2CharSelected)
+        if (p3.GetButtonDown("Cancel") && p3Drop && p3CharSelected)
         {
             p3CharSelected = false;
-            PB = p3Background.GetComponent<PlayerBackground>();
-            PB.CancelSelection();
+            //PB = p3Background.GetComponent<PlayerBackground>();
+            //PB.CancelSelection();
             p3Cursor.SetActive(true);
         }
-        if (p4.GetButtonDown("Cancel") && p4Drop && p2CharSelected)
+        if (p4.GetButtonDown("Cancel") && p4Drop && p4CharSelected)
         {
             p4CharSelected = false;
-            PB = p4Background.GetComponent<PlayerBackground>();
-            PB.CancelSelection();
             p4Cursor.SetActive(true);
         }
         //player drop
