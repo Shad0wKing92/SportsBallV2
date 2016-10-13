@@ -13,6 +13,7 @@ public class PlayerBackground : MonoBehaviour {
     bool weaponSelectActive, characterChosen;
     [HideInInspector]public bool weaponSelected, abilMenuOpen;
     WeaponSelect WS;
+    GodScript God;
     public int playerID;
     Player _player;
     GameObject CD, ND, NED, ED, SED, SD, SWD, WD, NWD;
@@ -25,6 +26,7 @@ public class PlayerBackground : MonoBehaviour {
         TextObject = this.gameObject;
         curChar = SelectableCharacters.None;
         WS = weaponSelect.GetComponent<WeaponSelect>();
+        God = GameObject.Find("God").GetComponent<GodScript>();
         CD = GameObject.Find("CenterDiamond");
         ND = GameObject.Find("NorthDiamond");
         NED = GameObject.Find("NorthEastDiamond");
@@ -37,14 +39,18 @@ public class PlayerBackground : MonoBehaviour {
     }
 
 	void Update () {
+
+       
         if (characterChosen)
         {
             if (_player.GetButtonDown("Select") && weaponSelectActive && !weaponSelected)
             {
+                God.PlayerReadyAdd();
                 setWeapon();
             }
             if (_player.GetButtonDown("Cancel") && !weaponSelectActive && weaponSelected)
             {
+                God.PlayerNotReady();
                 cancelWeaponSelection();
             }
             if (_player.GetButtonDown("Cancel") && weaponSelectActive && !weaponSelected)

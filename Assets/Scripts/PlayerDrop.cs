@@ -15,6 +15,7 @@ public class PlayerDrop : MonoBehaviour {
     buttonSchemes curScheme;
     CursorMovement CM;
     PlayerBackground PB;
+    GodScript God;
     GameObject p1Cursor, p2Cursor, p3Cursor, p4Cursor;
     Player p1, p2, p3, p4;
     public GameObject p1Background, p2Background, p3Background, p4Background, p1Logo, p2Logo, p3Logo, p4Logo;
@@ -31,7 +32,7 @@ public class PlayerDrop : MonoBehaviour {
         p3 = ReInput.players.GetPlayer(2);
         p4 = ReInput.players.GetPlayer(3);
         CM = Cursor.GetComponent<CursorMovement>();
-        
+        God = GameObject.Find("God").GetComponent<GodScript>();
     }
 
 	void Update ()
@@ -166,7 +167,13 @@ public class PlayerDrop : MonoBehaviour {
                 break;
         }
         CM.FindTB(pnumBackgroundObj);
+        God.PlayerAdd();
         //pnumBackgroundObj.SetActive(true);
+
+    }
+
+    void RemovePlayer()
+    {
 
     }
     #region
