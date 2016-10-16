@@ -150,6 +150,7 @@
     <Compile Include="Assets\Scripts\CursorMovement.cs" />
     <Compile Include="Assets\Scripts\CursorRotation.cs" />
     <Compile Include="Assets\Scripts\GodScript.cs" />
+    <Compile Include="Assets\Scripts\ParticleSystemMover.cs" />
     <Compile Include="Assets\Scripts\PlayerBackground.cs" />
     <Compile Include="Assets\Scripts\PlayerDrop.cs" />
     <Compile Include="Assets\Scripts\TestCharacterSelectP1.cs" />
